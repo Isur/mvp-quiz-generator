@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuizGenerator.Models
 {
-    class QGModel
+    public class QGModel
     {
     }
 }

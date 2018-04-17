@@ -8,16 +8,19 @@ namespace QuizGenerator
 {
     class Question
     {
-        List<Answer> Answers;
+        List<Answer> Answers { get; set; }
         string question;
         #region CONSTRUCTOR
-        public Question()
+        public Question(string question)
         {
-
+            this.question = question;
         }
         #endregion
         #region PUBLIC
-
+        void AddAnswer(Answer newAnswer)
+        {
+            Answers.Add(newAnswer);
+        }
         #endregion
         #region PRIVATE
 

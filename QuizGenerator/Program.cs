@@ -16,7 +16,10 @@ namespace QuizGenerator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.QuizGeneratorForm());
+            Forms.QuizGeneratorForm view = new Forms.QuizGeneratorForm();
+            Models.QGModel model = new Models.QGModel();
+            Presenters.QGPresenter presenter = new Presenters.QGPresenter(view, model);
+            Application.Run(view);
         }
     }
 }

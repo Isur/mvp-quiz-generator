@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuizGenerator.Views
 {
-    interface IQGView
+    public interface IQGView
     {
         List<string> Answers { get; set; }
         List<bool> IsRight { get; set; }
