@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Answer.cs" />
+    <Compile Include="Classes\Quiz.cs" />
     <Compile Include="Forms\QuizGeneratorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +65,12 @@
     <Compile Include="UserControls\userControlAnswer.Designer.cs">
       <DependentUpon>userControlAnswer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\userControlQuestion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\userControlQuestion.Designer.cs">
+      <DependentUpon>userControlQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\IQGView.cs" />
     <EmbeddedResource Include="Forms\QuizGeneratorForm.resx">
       <DependentUpon>QuizGeneratorForm.cs</DependentUpon>
@@ -79,6 +86,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\userControlAnswer.resx">
       <DependentUpon>userControlAnswer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\userControlQuestion.resx">
+      <DependentUpon>userControlQuestion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

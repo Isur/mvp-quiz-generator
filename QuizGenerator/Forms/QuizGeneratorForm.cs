@@ -58,11 +58,18 @@ namespace QuizGenerator.Forms
             }
         }
         #endregion
+
         #region PUBLIC
 
         #endregion
+
         #region PRIVATE
 
         #endregion
+
+        private void QuizGeneratorForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
