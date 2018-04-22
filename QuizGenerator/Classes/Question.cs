@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace QuizGenerator
 {
-    class Question
+    public class Question
     {
-        List<Answer> Answers { get; set; }
-        string question;
+        private List<Answer> answers = new List<Answer>();
+        public List<Answer> Answers { get { return answers; } set { answers = value; } }
+        public string QuestionString { get; set; }
         #region CONSTRUCTOR
         public Question(string question)
         {
-            this.question = question;
+            this.QuestionString = question;
         }
         #endregion
         #region PUBLIC
-        void AddAnswer(Answer newAnswer)
+        public void AddAnswer(Answer answ)
         {
-            Answers.Add(newAnswer);
+            answers.Add(answ);
         }
         #endregion
         #region PRIVATE

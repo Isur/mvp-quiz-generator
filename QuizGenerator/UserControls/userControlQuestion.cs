@@ -12,6 +12,7 @@ namespace QuizGenerator.UserControls
 {
     public partial class userControlQuestion : UserControl
     {
+        public string Question { get { return textBoxQuestion.Text; } }
         private int answerCounter;
         private userControlAnswer[] answers = new userControlAnswer[8];
         public userControlQuestion()

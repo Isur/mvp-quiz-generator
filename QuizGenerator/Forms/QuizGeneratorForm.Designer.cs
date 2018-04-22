@@ -30,7 +30,7 @@
         {
             this.textBoxQuizName = new System.Windows.Forms.TextBox();
             this.labelQuizName = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonSaveQuiz = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -38,7 +38,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.userControlQuestion1 = new QuizGenerator.UserControls.userControlQuestion();
+            this.userControlQuestion = new QuizGenerator.UserControls.userControlQuestion();
             this.SuspendLayout();
             // 
             // textBoxQuizName
@@ -57,14 +57,15 @@
             this.labelQuizName.TabIndex = 1;
             this.labelQuizName.Text = "Nazwa Quizu";
             // 
-            // button3
+            // buttonSaveQuiz
             // 
-            this.button3.Location = new System.Drawing.Point(178, 362);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Zapisz Quiz";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonSaveQuiz.Location = new System.Drawing.Point(178, 362);
+            this.buttonSaveQuiz.Name = "buttonSaveQuiz";
+            this.buttonSaveQuiz.Size = new System.Drawing.Size(94, 23);
+            this.buttonSaveQuiz.TabIndex = 6;
+            this.buttonSaveQuiz.Text = "Zapisz Quiz";
+            this.buttonSaveQuiz.UseVisualStyleBackColor = true;
+            this.buttonSaveQuiz.Click += new System.EventHandler(this.buttonSaveQuiz_Click);
             // 
             // button4
             // 
@@ -128,19 +129,19 @@
             this.button9.Text = "Usuń Quiz";
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // userControlQuestion1
+            // userControlQuestion
             // 
-            this.userControlQuestion1.Location = new System.Drawing.Point(8, 35);
-            this.userControlQuestion1.Name = "userControlQuestion1";
-            this.userControlQuestion1.Size = new System.Drawing.Size(278, 292);
-            this.userControlQuestion1.TabIndex = 18;
+            this.userControlQuestion.Location = new System.Drawing.Point(8, 35);
+            this.userControlQuestion.Name = "userControlQuestion";
+            this.userControlQuestion.Size = new System.Drawing.Size(278, 292);
+            this.userControlQuestion.TabIndex = 18;
             // 
             // QuizGeneratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(291, 433);
-            this.Controls.Add(this.userControlQuestion1);
+            this.Controls.Add(this.userControlQuestion);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -148,7 +149,7 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonSaveQuiz);
             this.Controls.Add(this.labelQuizName);
             this.Controls.Add(this.textBoxQuizName);
             this.Name = "QuizGeneratorForm";
@@ -163,7 +164,7 @@
 
         private System.Windows.Forms.TextBox textBoxQuizName;
         private System.Windows.Forms.Label labelQuizName;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonSaveQuiz;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
@@ -171,6 +172,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
-        private UserControls.userControlQuestion userControlQuestion1;
+        private UserControls.userControlQuestion userControlQuestion;
     }
 }

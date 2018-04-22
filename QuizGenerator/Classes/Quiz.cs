@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace QuizGenerator.Classes
 {
-    class Quiz
+    public class Quiz
     {
-        List<Question> questions;
-        string Name { get; set; }
+        private List<Question> questions = new List<Question>();
+        public string Name { get; set; }
+        public List<Question> Questions { get { return questions; } set { questions = value; } }
         #region CONSTRUCTOR
         public Quiz(string name)
         {
@@ -17,7 +18,11 @@ namespace QuizGenerator.Classes
         }
         #endregion
         #region PUBLIC
-
+        public void AddQuestion(Question q)
+        {
+             questions.Add(q);
+        }
+    
         #endregion
         #region PRIVATE
 

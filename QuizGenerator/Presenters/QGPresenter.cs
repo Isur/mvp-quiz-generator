@@ -15,6 +15,17 @@ namespace QuizGenerator.Presenters
         {
             this.view = view;
             this.model = model;
+            view.SaveQuestion += saveQuestion;
+            view.SaveQuiz += saveQuiz;
+        }
+
+        private bool saveQuestion(string quizName, string question, List<string> answers, List<bool> isRight)
+        {
+            return model.SaveQuestion(quizName, question, answers, isRight);
+        }
+        private bool saveQuiz(string quizName)
+        {
+            return model.SaveQuiz(quizName);
         }
     }
 }

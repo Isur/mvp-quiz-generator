@@ -45,6 +45,19 @@ namespace QuizGenerator.Forms
             }
         }
 
+        public string Question
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public string QuizName
         {
             get
@@ -57,6 +70,9 @@ namespace QuizGenerator.Forms
                 throw new NotImplementedException();
             }
         }
+
+        public event Func<string, string, List<string>, List<bool>, bool> SaveQuestion;
+        public event Func<string, bool> SaveQuiz;
         #endregion
 
         #region PUBLIC
@@ -70,6 +86,11 @@ namespace QuizGenerator.Forms
         private void QuizGeneratorForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonSaveQuiz_Click(object sender, EventArgs e)
+        {
+            SaveQuiz(textBoxQuizName.Text);
         }
     }
 }

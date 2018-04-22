@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace QuizGenerator
 {
-    class Answer
+    public class Answer
     {
-        string answer;
-        bool isRight;
+        public string AnswerString { get; set; }
+        public bool IsRight { get; set; }
 
         #region CONSTRUCTOR
         public Answer(string answer, bool isRight)
         {
-            this.answer = answer;
-            this.isRight = isRight;
+            this.AnswerString = answer;
+            this.IsRight = isRight;
         }
         #endregion
         #region PUBLIC
