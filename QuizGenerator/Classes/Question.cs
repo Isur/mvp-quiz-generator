@@ -16,6 +16,7 @@ namespace QuizGenerator
         {
             this.QuestionString = question;
         }
+        public Question() { }
         #endregion
         #region PUBLIC
         public void AddAnswer(Answer answ)

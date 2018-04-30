@@ -14,5 +14,7 @@ namespace QuizGenerator.Views
         string Question { get; set; }
         event Func<string, string, List<string>, List<bool>, bool> SaveQuestion;
         event Func<string, bool> SaveQuiz;
+        event Func<string, bool> DeleteQuiz;
+        event Func<List<string>> GetQuiz;
     }
 }

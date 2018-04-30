@@ -13,10 +13,41 @@ namespace QuizGenerator.UserControls
     public partial class userControlQuestion : UserControl
     {
         public string Question { get { return textBoxQuestion.Text; } }
+        private List<string> answersString = new List<string>();
+        private List<bool> answerIsRight = new List<bool>();
+        public List<string> AnswersString
+        {
+            get
+            {
+                answersString.Clear();
+                for(int i=0;i<answerCounter;i++)
+                {
+                    Console.WriteLine(answers[i].Answer + " right: " + answers[i].IsRight);
+                    answersString.Add(answers[i].Answer);
+                }
+                return answersString;
+            }
+            set
+            {
+                
+            }
+        }
+        public List<bool> AnswerIsRight
+        { get
+            {
+                answerIsRight.Clear();
+                for (int i = 0; i < answerCounter; i++)
+                {
+                    answerIsRight.Add(answers[i].IsRight);
+                }
+                return answerIsRight;
+            }
+        }
         private int answerCounter;
         private userControlAnswer[] answers = new userControlAnswer[8];
         public userControlQuestion()
         {
+            answersString = new List<string>();
             InitializeComponent();
             answers[0] = userControlAnswer1;
             answers[1] = userControlAnswer2;
@@ -24,7 +55,15 @@ namespace QuizGenerator.UserControls
             answers[3] = userControlAnswer4;
             answerCounter = 4;
         }   
-
+        public void Clear()
+        {
+            textBoxQuestion.Text = "";
+            for (int i = 0; i < answerCounter; i++)
+            {
+                answers[i].Answer = "";
+                answers[i].IsRight = false;
+            }
+        }
         private void buttonAddAnswer_Click(object sender, EventArgs e)
         {
             if (answerCounter < 8)

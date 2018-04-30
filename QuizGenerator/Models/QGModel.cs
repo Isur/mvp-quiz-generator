@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using QuizGenerator.Classes;
 using System.Xml;
+using System.IO;
 namespace QuizGenerator.Models
 {
     public class QGModel
     {
         #region FIELDS PROPERTIES
-        List<Quiz> quiz;
+        List<Quiz> quiz = new List<Quiz>();
         Question newQuestion;
         Answer newAnswer;
         #endregion
@@ -21,24 +22,63 @@ namespace QuizGenerator.Models
         }
         #endregion
         #region PUBLIC
-        public bool SaveQuestion(string quizName, string question, List<string> answers, List<bool> isRight)
+        public List<string> GetQuiz()
         {
-            foreach(Quiz q in quiz)
+            List<string> xmlFiles = new List<string>();
+            string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory);
+            foreach(string str in files)
             {
-                if(q.Name == quizName)
+                Console.WriteLine(str);
+                Console.WriteLine(Path.GetExtension(str));
+                if (Path.GetExtension(str) == ".xml")
                 {
-                    newQuestion = new Question(question);
-                    for(int i = 0; i < answers.Count;i++)
-                    {
-                        newAnswer = new Answer(answers[i],isRight[i]);
-                        newQuestion.AddAnswer(newAnswer);
-                    }
-                    
-
-                    break;
+                    xmlFiles.Add(Path.GetFileName(str.Split('.')[0]));
                 }
             }
-            return new bool();
+            
+            return xmlFiles;
+        }
+        public bool DeleteQuiz(string quizName)
+        {
+            string toDelete;
+            if (!quizName.EndsWith(".xml"))
+            {
+                toDelete = quizName + ".xml";
+            }
+            else toDelete = quizName;
+            Console.WriteLine("To delete: " + AppDomain.CurrentDomain.BaseDirectory + toDelete);
+            try
+            {
+                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + toDelete))
+                {
+                    File.Delete(AppDomain.CurrentDomain.BaseDirectory + toDelete);
+                    return true;
+                }
+                else return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool SaveQuestion(string quizName, string question, List<string> answers, List<bool> isRight)
+        {
+
+            if(Array.IndexOf(Directory.GetFileSystemEntries(AppDomain.CurrentDomain.BaseDirectory), AppDomain.CurrentDomain.BaseDirectory+ quizName + ".xml") >= 0)
+            {
+                Console.WriteLine("Quiz already Exsists, want to override it?");
+                return false;
+            }
+            Quiz q;
+            q = findQuiz(quizName);
+            newQuestion = new Question(question);
+            for(int i = 0; i < answers.Count;i++)
+            {
+                newAnswer = new Answer(answers[i],isRight[i]);
+                newQuestion.AddAnswer(newAnswer);
+            }
+            q.AddQuestion(newQuestion);
+            return true;
         }
         public bool SaveQuiz(string quizName)
         {
@@ -53,42 +93,32 @@ namespace QuizGenerator.Models
                 }
             }
             Quiz newQuiz = new Quiz(quizName);
-            Question g = new Question("Pytanie nr 1");
-            Answer a = new Answer("Odpowiedz nr 1", true);
-            g.AddAnswer(a);
-            newQuiz.AddQuestion(g);
-            g = new Question("Pytanie nr 2?");
-            a = new Answer("Odpowiedz nr 1", false);
-            g.AddAnswer(a);
-            a = new Answer("Odpowiedz nr 2", true);
-            g.AddAnswer(a);
-            a = new Answer("Odpowiedz nr 3", false);
-            g.AddAnswer(a);
-            newQuiz.AddQuestion(g);
-            g = new Question("Pytanie nr 3?");
-            a = new Answer("Odpowiedz nr 1", false);
-            g.AddAnswer(a);
-            a = new Answer("Odpowiedz nr 2", true);
-            g.AddAnswer(a);
-            a = new Answer("Odpowiedz nr 3", false);
-            g.AddAnswer(a);
-            a = new Answer("Odpowiedz nr 4", true);
-            g.AddAnswer(a);
-            newQuiz.AddQuestion(g);
 
             return saveQuiz(newQuiz);
         }
 
         #endregion
         #region PRIVATE
-
+        private Quiz findQuiz(string quizName)
+        {
+            foreach (Quiz q in quiz)
+            {
+                if(q.Name == quizName)
+                {
+                    return q;
+                }
+            }
+            Quiz newQuiz = new Quiz(quizName);
+            quiz.Add(newQuiz);
+            return newQuiz;
+        }
         private  bool saveQuiz(Quiz quizz)
         {
-            try { if (System.IO.File.Exists("quiz.xml")) System.IO.File.Delete("quiz.xml"); }
+            try { if (System.IO.File.Exists(quizz.Name + ".xml")) System.IO.File.Delete(quizz.Name+".xml"); }
             catch (Exception) { return false; }
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
-            using (XmlWriter writer = XmlWriter.Create("quiz.xml",settings))
+            using (XmlWriter writer = XmlWriter.Create(quizz.Name + ".xml",settings))
             {
                 
 

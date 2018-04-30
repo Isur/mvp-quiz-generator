@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuizGeneratorForm));
             this.textBoxQuizName = new System.Windows.Forms.TextBox();
             this.labelQuizName = new System.Windows.Forms.Label();
             this.buttonSaveQuiz = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.buttonSaveQuestion = new System.Windows.Forms.Button();
+            this.comboBoxQuizList = new System.Windows.Forms.ComboBox();
+            this.buttonDeleteQuiz = new System.Windows.Forms.Button();
+            this.toolTipDelete = new System.Windows.Forms.ToolTip(this.components);
             this.userControlQuestion = new QuizGenerator.UserControls.userControlQuestion();
             this.SuspendLayout();
             // 
@@ -59,78 +58,54 @@
             // 
             // buttonSaveQuiz
             // 
-            this.buttonSaveQuiz.Location = new System.Drawing.Point(178, 362);
+            this.buttonSaveQuiz.Location = new System.Drawing.Point(8, 362);
             this.buttonSaveQuiz.Name = "buttonSaveQuiz";
-            this.buttonSaveQuiz.Size = new System.Drawing.Size(94, 23);
+            this.buttonSaveQuiz.Size = new System.Drawing.Size(124, 23);
             this.buttonSaveQuiz.TabIndex = 6;
             this.buttonSaveQuiz.Text = "Zapisz Quiz";
+            this.toolTipDelete.SetToolTip(this.buttonSaveQuiz, "Zapisz Quiz o podanej nazwie.");
             this.buttonSaveQuiz.UseVisualStyleBackColor = true;
             this.buttonSaveQuiz.Click += new System.EventHandler(this.buttonSaveQuiz_Click);
             // 
-            // button4
+            // buttonSaveQuestion
             // 
-            this.button4.Location = new System.Drawing.Point(178, 333);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Zapisz pytanie";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonSaveQuestion.Location = new System.Drawing.Point(152, 362);
+            this.buttonSaveQuestion.Name = "buttonSaveQuestion";
+            this.buttonSaveQuestion.Size = new System.Drawing.Size(120, 23);
+            this.buttonSaveQuestion.TabIndex = 11;
+            this.buttonSaveQuestion.Text = "Zapisz pytanie";
+            this.toolTipDelete.SetToolTip(this.buttonSaveQuestion, "Zapisz pytanie do Quizu o podanej nazwie.");
+            this.buttonSaveQuestion.UseVisualStyleBackColor = true;
+            this.buttonSaveQuestion.Click += new System.EventHandler(this.buttonSaveQuestion_Click);
             // 
-            // button5
+            // comboBoxQuizList
             // 
-            this.button5.Location = new System.Drawing.Point(8, 333);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 23);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Usuń pytanie";
-            this.button5.UseVisualStyleBackColor = true;
+            this.comboBoxQuizList.FormattingEnabled = true;
+            this.comboBoxQuizList.Location = new System.Drawing.Point(98, 398);
+            this.comboBoxQuizList.Name = "comboBoxQuizList";
+            this.comboBoxQuizList.Size = new System.Drawing.Size(174, 21);
+            this.comboBoxQuizList.TabIndex = 14;
+            this.comboBoxQuizList.SelectedIndexChanged += new System.EventHandler(this.comboBoxQuizList_SelectedIndexChanged);
+            this.comboBoxQuizList.Click += new System.EventHandler(this.comboBoxQuizList_Click);
             // 
-            // button6
+            // buttonDeleteQuiz
             // 
-            this.button6.Location = new System.Drawing.Point(12, 398);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(80, 23);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "Wczytaj Quiz";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonDeleteQuiz.Location = new System.Drawing.Point(8, 396);
+            this.buttonDeleteQuiz.Name = "buttonDeleteQuiz";
+            this.buttonDeleteQuiz.Size = new System.Drawing.Size(84, 23);
+            this.buttonDeleteQuiz.TabIndex = 17;
+            this.buttonDeleteQuiz.Text = "Usuń Quiz";
+            this.toolTipDelete.SetToolTip(this.buttonDeleteQuiz, "Podaj nazwę Quizu który chcesz usunąć.");
+            this.buttonDeleteQuiz.UseVisualStyleBackColor = true;
+            this.buttonDeleteQuiz.Click += new System.EventHandler(this.buttonDeleteQuiz_Click);
             // 
-            // comboBox1
+            // toolTipDelete
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(98, 398);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 21);
-            this.comboBox1.TabIndex = 14;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(145, 333);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(31, 23);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "-->";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(108, 333);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(31, 23);
-            this.button8.TabIndex = 16;
-            this.button8.Text = "<--";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(8, 362);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(94, 23);
-            this.button9.TabIndex = 17;
-            this.button9.Text = "Usuń Quiz";
-            this.button9.UseVisualStyleBackColor = true;
+            this.toolTipDelete.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // userControlQuestion
             // 
+            this.userControlQuestion.AnswersString = ((System.Collections.Generic.List<string>)(resources.GetObject("userControlQuestion.AnswersString")));
             this.userControlQuestion.Location = new System.Drawing.Point(8, 35);
             this.userControlQuestion.Name = "userControlQuestion";
             this.userControlQuestion.Size = new System.Drawing.Size(278, 292);
@@ -142,13 +117,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(291, 433);
             this.Controls.Add(this.userControlQuestion);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonDeleteQuiz);
+            this.Controls.Add(this.comboBoxQuizList);
+            this.Controls.Add(this.buttonSaveQuestion);
             this.Controls.Add(this.buttonSaveQuiz);
             this.Controls.Add(this.labelQuizName);
             this.Controls.Add(this.textBoxQuizName);
@@ -165,13 +136,10 @@
         private System.Windows.Forms.TextBox textBoxQuizName;
         private System.Windows.Forms.Label labelQuizName;
         private System.Windows.Forms.Button buttonSaveQuiz;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button buttonSaveQuestion;
+        private System.Windows.Forms.ComboBox comboBoxQuizList;
+        private System.Windows.Forms.Button buttonDeleteQuiz;
         private UserControls.userControlQuestion userControlQuestion;
+        private System.Windows.Forms.ToolTip toolTipDelete;
     }
 }

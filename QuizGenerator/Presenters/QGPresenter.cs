@@ -17,6 +17,8 @@ namespace QuizGenerator.Presenters
             this.model = model;
             view.SaveQuestion += saveQuestion;
             view.SaveQuiz += saveQuiz;
+            view.DeleteQuiz += deleteQuiz;
+            view.GetQuiz += getQuiz;
         }
 
         private bool saveQuestion(string quizName, string question, List<string> answers, List<bool> isRight)
@@ -26,6 +28,14 @@ namespace QuizGenerator.Presenters
         private bool saveQuiz(string quizName)
         {
             return model.SaveQuiz(quizName);
+        }
+        private bool deleteQuiz(string quizName)
+        {
+            return model.DeleteQuiz(quizName);
+        }
+        private List<string> getQuiz()
+        {
+            return model.GetQuiz();
         }
     }
 }

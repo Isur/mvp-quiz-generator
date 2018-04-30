@@ -16,13 +16,25 @@ namespace QuizGenerator.Classes
         {
             this.Name = name;
         }
+        public Quiz() { }
         #endregion
         #region PUBLIC
         public void AddQuestion(Question q)
         {
              questions.Add(q);
         }
-    
+        public void showEverything()
+        {
+            Console.WriteLine("Quiz Name: " + Name);
+            foreach(Question q in questions)
+            {
+                Console.WriteLine("Question string: " + q.QuestionString);
+                foreach(Answer ans in q.Answers)
+                {
+                    Console.WriteLine("Answer string: " + ans.AnswerString + " // Answer is right: " + ans.IsRight);
+                }
+            }
+        }
         #endregion
         #region PRIVATE
 

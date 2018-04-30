@@ -73,6 +73,8 @@ namespace QuizGenerator.Forms
 
         public event Func<string, string, List<string>, List<bool>, bool> SaveQuestion;
         public event Func<string, bool> SaveQuiz;
+        public event Func<string, bool> DeleteQuiz;
+        public event Func<List<string>> GetQuiz;
         #endregion
 
         #region PUBLIC
@@ -83,14 +85,70 @@ namespace QuizGenerator.Forms
 
         #endregion
 
+        private void loadQuizList()
+        {
+            comboBoxQuizList.Items.Clear();
+            foreach (string str in GetQuiz())
+            {
+                comboBoxQuizList.Items.Add(str);
+            }
+        }
         private void QuizGeneratorForm_Load(object sender, EventArgs e)
         {
-
+            loadQuizList();
         }
 
         private void buttonSaveQuiz_Click(object sender, EventArgs e)
         {
-            SaveQuiz(textBoxQuizName.Text);
+            if (SaveQuiz(textBoxQuizName.Text))
+            {
+                MessageBox.Show("Zapisano!");
+            }
+            else MessageBox.Show("Nie zapisano.");
+           
+        }
+
+        private void buttonSaveQuestion_Click(object sender, EventArgs e)
+        {
+            if(SaveQuestion(textBoxQuizName.Text, userControlQuestion.Question, userControlQuestion.AnswersString, userControlQuestion.AnswerIsRight))
+            {
+                MessageBox.Show("Pytanie zapisane!");
+                
+            }
+            else if(MessageBox.Show("Quiz już istnieje, czy chcesz nadpisać?", "Quiz istnieje!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if(DeleteQuiz(textBoxQuizName.Text))
+                {
+                    MessageBox.Show("Istniejący quiz " + textBoxQuizName.Text + " został usunięty. Został utworzony nowy o tej samej nazwie!");
+                    SaveQuestion(textBoxQuizName.Text, userControlQuestion.Question, userControlQuestion.AnswersString, userControlQuestion.AnswerIsRight);
+                }
+            }
+            userControlQuestion.Clear();
+        }
+
+
+        private void buttonDeleteQuiz_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Jesteś pewny, że chcesz usunąć Quiz o nazwie: " + comboBoxQuizList.SelectedItem.ToString() + ". Tej akcji nie można odwrócić!","Usuwanie quizu", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (DeleteQuiz(comboBoxQuizList.SelectedItem.ToString()))
+                {
+                    MessageBox.Show("Quiz " + comboBoxQuizList.SelectedItem.ToString() + " został usunięty. Możesz utworzyć teraz nowy!");
+                    loadQuizList();
+                }
+                else
+                    MessageBox.Show("Quiz nie mógł zostać usunięty",":(" ,MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void comboBoxQuizList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxQuizList_Click(object sender, EventArgs e)
+        {
+            loadQuizList();
         }
     }
 }

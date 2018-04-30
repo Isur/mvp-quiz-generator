@@ -12,8 +12,8 @@ namespace QuizGenerator.UserControls
 {
     public partial class userControlAnswer : UserControl
     {
-        public bool IsRight { get { return checkBoxRight.Checked; } }
-        public string Answer { get { return textBoxAnswer.Text; } }
+        public bool IsRight { get { return checkBoxRight.Checked; } set { checkBoxRight.Checked = value; } }
+        public string Answer { get { return textBoxAnswer.Text; } set { textBoxAnswer.Text = value; } }
         public userControlAnswer()
         {
             InitializeComponent();

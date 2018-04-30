@@ -17,6 +17,7 @@ namespace QuizGenerator
             this.AnswerString = answer;
             this.IsRight = isRight;
         }
+        public Answer() { }
         #endregion
         #region PUBLIC
 
