@@ -72,7 +72,7 @@
             this.buttonSaveQuestion.Location = new System.Drawing.Point(152, 362);
             this.buttonSaveQuestion.Name = "buttonSaveQuestion";
             this.buttonSaveQuestion.Size = new System.Drawing.Size(120, 23);
-            this.buttonSaveQuestion.TabIndex = 11;
+            this.buttonSaveQuestion.TabIndex = 7;
             this.buttonSaveQuestion.Text = "Zapisz pytanie";
             this.toolTipDelete.SetToolTip(this.buttonSaveQuestion, "Zapisz pytanie do Quizu o podanej nazwie.");
             this.buttonSaveQuestion.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             this.comboBoxQuizList.Location = new System.Drawing.Point(98, 398);
             this.comboBoxQuizList.Name = "comboBoxQuizList";
             this.comboBoxQuizList.Size = new System.Drawing.Size(174, 21);
-            this.comboBoxQuizList.TabIndex = 14;
+            this.comboBoxQuizList.TabIndex = 9;
             this.comboBoxQuizList.SelectedIndexChanged += new System.EventHandler(this.comboBoxQuizList_SelectedIndexChanged);
             this.comboBoxQuizList.Click += new System.EventHandler(this.comboBoxQuizList_Click);
             // 
@@ -93,9 +93,9 @@
             this.buttonDeleteQuiz.Location = new System.Drawing.Point(8, 396);
             this.buttonDeleteQuiz.Name = "buttonDeleteQuiz";
             this.buttonDeleteQuiz.Size = new System.Drawing.Size(84, 23);
-            this.buttonDeleteQuiz.TabIndex = 17;
+            this.buttonDeleteQuiz.TabIndex = 8;
             this.buttonDeleteQuiz.Text = "Usuń Quiz";
-            this.toolTipDelete.SetToolTip(this.buttonDeleteQuiz, "Podaj nazwę Quizu który chcesz usunąć.");
+            this.toolTipDelete.SetToolTip(this.buttonDeleteQuiz, "Wybierz Quiz, który chcesz usunąć z listy obok.");
             this.buttonDeleteQuiz.UseVisualStyleBackColor = true;
             this.buttonDeleteQuiz.Click += new System.EventHandler(this.buttonDeleteQuiz_Click);
             // 
@@ -109,7 +109,7 @@
             this.userControlQuestion.Location = new System.Drawing.Point(8, 35);
             this.userControlQuestion.Name = "userControlQuestion";
             this.userControlQuestion.Size = new System.Drawing.Size(278, 292);
-            this.userControlQuestion.TabIndex = 18;
+            this.userControlQuestion.TabIndex = 1;
             // 
             // QuizGeneratorForm
             // 

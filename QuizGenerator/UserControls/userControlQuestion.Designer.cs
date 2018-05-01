@@ -72,14 +72,14 @@
             this.textBoxQuestion.Location = new System.Drawing.Point(89, 3);
             this.textBoxQuestion.Name = "textBoxQuestion";
             this.textBoxQuestion.Size = new System.Drawing.Size(183, 20);
-            this.textBoxQuestion.TabIndex = 15;
+            this.textBoxQuestion.TabIndex = 0;
             // 
             // buttonDeleteAnswer
             // 
             this.buttonDeleteAnswer.Location = new System.Drawing.Point(242, 32);
             this.buttonDeleteAnswer.Name = "buttonDeleteAnswer";
             this.buttonDeleteAnswer.Size = new System.Drawing.Size(30, 23);
-            this.buttonDeleteAnswer.TabIndex = 14;
+            this.buttonDeleteAnswer.TabIndex = 2;
             this.buttonDeleteAnswer.Text = "-";
             this.buttonDeleteAnswer.UseVisualStyleBackColor = true;
             this.buttonDeleteAnswer.Click += new System.EventHandler(this.buttonDeleteAnswer_Click);
@@ -89,38 +89,46 @@
             this.buttonAddAnswer.Location = new System.Drawing.Point(206, 32);
             this.buttonAddAnswer.Name = "buttonAddAnswer";
             this.buttonAddAnswer.Size = new System.Drawing.Size(30, 23);
-            this.buttonAddAnswer.TabIndex = 13;
+            this.buttonAddAnswer.TabIndex = 1;
             this.buttonAddAnswer.Text = "+";
             this.buttonAddAnswer.UseVisualStyleBackColor = true;
             this.buttonAddAnswer.Click += new System.EventHandler(this.buttonAddAnswer_Click);
             // 
             // userControlAnswer4
             // 
+            this.userControlAnswer4.Answer = "";
+            this.userControlAnswer4.IsRight = false;
             this.userControlAnswer4.Location = new System.Drawing.Point(16, 150);
             this.userControlAnswer4.Name = "userControlAnswer4";
             this.userControlAnswer4.Size = new System.Drawing.Size(256, 22);
-            this.userControlAnswer4.TabIndex = 20;
+            this.userControlAnswer4.TabIndex = 6;
             // 
             // userControlAnswer3
             // 
+            this.userControlAnswer3.Answer = "";
+            this.userControlAnswer3.IsRight = false;
             this.userControlAnswer3.Location = new System.Drawing.Point(16, 125);
             this.userControlAnswer3.Name = "userControlAnswer3";
             this.userControlAnswer3.Size = new System.Drawing.Size(256, 22);
-            this.userControlAnswer3.TabIndex = 19;
+            this.userControlAnswer3.TabIndex = 5;
             // 
             // userControlAnswer2
             // 
+            this.userControlAnswer2.Answer = "";
+            this.userControlAnswer2.IsRight = false;
             this.userControlAnswer2.Location = new System.Drawing.Point(16, 100);
             this.userControlAnswer2.Name = "userControlAnswer2";
             this.userControlAnswer2.Size = new System.Drawing.Size(256, 22);
-            this.userControlAnswer2.TabIndex = 12;
+            this.userControlAnswer2.TabIndex = 4;
             // 
             // userControlAnswer1
             // 
+            this.userControlAnswer1.Answer = "";
+            this.userControlAnswer1.IsRight = false;
             this.userControlAnswer1.Location = new System.Drawing.Point(16, 75);
             this.userControlAnswer1.Name = "userControlAnswer1";
             this.userControlAnswer1.Size = new System.Drawing.Size(256, 22);
-            this.userControlAnswer1.TabIndex = 11;
+            this.userControlAnswer1.TabIndex = 3;
             // 
             // userControlQuestion
             // 

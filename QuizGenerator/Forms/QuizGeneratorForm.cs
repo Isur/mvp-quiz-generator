@@ -83,8 +83,6 @@ namespace QuizGenerator.Forms
 
         #region PRIVATE
 
-        #endregion
-
         private void loadQuizList()
         {
             comboBoxQuizList.Items.Clear();
@@ -110,6 +108,29 @@ namespace QuizGenerator.Forms
 
         private void buttonSaveQuestion_Click(object sender, EventArgs e)
         {
+            string error = "";
+            bool isError = false;
+            if (string.IsNullOrWhiteSpace(textBoxQuizName.Text))
+            {
+                error += "\n Podaj nazwę quizu, do którego chcesz dodać to pytanie!";
+                isError = true;
+            }
+            if(string.IsNullOrWhiteSpace(userControlQuestion.Question))
+            {
+                error += "\n Zadaj pytanie!";
+                isError = true;
+            }
+            if (!userControlQuestion.IsFill())
+            {
+                error += "\n Wypełnij wszystkie odpowiedzi lub usuń puste!";
+                isError = true;
+            }
+            if (isError)
+            {
+                MessageBox.Show(error, "Coś poszło nie tak...");
+                return;
+            }
+
             if(SaveQuestion(textBoxQuizName.Text, userControlQuestion.Question, userControlQuestion.AnswersString, userControlQuestion.AnswerIsRight))
             {
                 MessageBox.Show("Pytanie zapisane!");
@@ -149,6 +170,24 @@ namespace QuizGenerator.Forms
         private void comboBoxQuizList_Click(object sender, EventArgs e)
         {
             loadQuizList();
+        }
+        #endregion
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (CloseCancel() == false)
+            {
+                e.Cancel = true;
+            };
+        }
+        public static bool CloseCancel()
+        {
+            const string message = "Jesteś pewny, że chcesz wyjść? Wszystko zapisałeś?";
+            const string caption = "Wyjście";
+            if (MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                return true;
+            }
+            else return false;
         }
     }
 }

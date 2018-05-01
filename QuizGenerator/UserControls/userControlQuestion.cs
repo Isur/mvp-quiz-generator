@@ -12,6 +12,7 @@ namespace QuizGenerator.UserControls
 {
     public partial class userControlQuestion : UserControl
     {
+        private int answerRight;
         public string Question { get { return textBoxQuestion.Text; } }
         private List<string> answersString = new List<string>();
         private List<bool> answerIsRight = new List<bool>();
@@ -54,7 +55,23 @@ namespace QuizGenerator.UserControls
             answers[2] = userControlAnswer3;
             answers[3] = userControlAnswer4;
             answerCounter = 4;
+            
         }   
+        public bool IsFill()
+        {
+            answerRight = 0;
+            for(int i = 0; i < answerCounter; i++)
+            {
+                if (string.IsNullOrWhiteSpace(answers[i].Answer))
+                    return false;
+                if (answers[i].IsRight == true)
+                    answerRight++;
+            }
+
+            if (answerRight == 0)
+                return false;
+            return true;
+        }
         public void Clear()
         {
             textBoxQuestion.Text = "";
