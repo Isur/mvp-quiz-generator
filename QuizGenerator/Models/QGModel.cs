@@ -116,12 +116,11 @@ namespace QuizGenerator.Models
         {
             try { if (System.IO.File.Exists(quizz.Name + ".xml")) System.IO.File.Delete(quizz.Name+".xml"); }
             catch (Exception) { return false; }
+            if (quizz.Questions.Count == 0) return false;
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             using (XmlWriter writer = XmlWriter.Create(quizz.Name + ".xml",settings))
-            {
-                
-
+            {           
                 writer.WriteStartDocument();
                 writer.WriteStartElement("Quiz");
                 writer.WriteElementString("QuizName", quizz.Name);

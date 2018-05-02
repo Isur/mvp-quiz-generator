@@ -18,5 +18,10 @@ namespace QuizGenerator.UserControls
         {
             InitializeComponent();
         }
+
+        private void userControlAnswer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

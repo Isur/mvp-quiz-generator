@@ -87,10 +87,10 @@ namespace QuizGenerator.UserControls
             {
                 userControlAnswer newAnswer = new userControlAnswer();
                 this.Controls.Add(newAnswer);
-                newAnswer.Width = 256;
+                newAnswer.Width = 275;
                 newAnswer.Height = 22;
-                newAnswer.Top = 75 + 25 * answerCounter;
-                newAnswer.Left = 16;
+                newAnswer.Top = 61 + 29 * answerCounter;
+                newAnswer.Left = 8;
                 answers[answerCounter] = newAnswer;
                 answerCounter++;               
             }

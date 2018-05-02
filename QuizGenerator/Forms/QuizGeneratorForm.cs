@@ -98,11 +98,16 @@ namespace QuizGenerator.Forms
 
         private void buttonSaveQuiz_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(textBoxQuizName.Text))
+            {
+                MessageBox.Show("Podaj nazwę quizu, który chcesz zapisać!");
+                return;
+            }
             if (SaveQuiz(textBoxQuizName.Text))
             {
                 MessageBox.Show("Zapisano!");
             }
-            else MessageBox.Show("Nie zapisano.");
+            else MessageBox.Show("Nie zapisano.\nMusi być przynajmniej jedno pytanie!");
            
         }
 
@@ -150,6 +155,11 @@ namespace QuizGenerator.Forms
 
         private void buttonDeleteQuiz_Click(object sender, EventArgs e)
         {
+            if (comboBoxQuizList.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrałeś istniejącego quizu.");
+                return;
+            }
             if(MessageBox.Show("Jesteś pewny, że chcesz usunąć Quiz o nazwie: " + comboBoxQuizList.SelectedItem.ToString() + ". Tej akcji nie można odwrócić!","Usuwanie quizu", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 if (DeleteQuiz(comboBoxQuizList.SelectedItem.ToString()))

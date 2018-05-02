@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelAnswers = new System.Windows.Forms.Label();
-            this.labelIsRight = new System.Windows.Forms.Label();
             this.labelQuestion = new System.Windows.Forms.Label();
             this.textBoxQuestion = new System.Windows.Forms.TextBox();
             this.buttonDeleteAnswer = new System.Windows.Forms.Button();
@@ -40,127 +38,120 @@
             this.userControlAnswer1 = new QuizGenerator.UserControls.userControlAnswer();
             this.SuspendLayout();
             // 
-            // labelAnswers
-            // 
-            this.labelAnswers.AutoSize = true;
-            this.labelAnswers.Location = new System.Drawing.Point(5, 29);
-            this.labelAnswers.Name = "labelAnswers";
-            this.labelAnswers.Size = new System.Drawing.Size(65, 13);
-            this.labelAnswers.TabIndex = 18;
-            this.labelAnswers.Text = "Odpowiedzi:";
-            // 
-            // labelIsRight
-            // 
-            this.labelIsRight.AutoSize = true;
-            this.labelIsRight.Location = new System.Drawing.Point(5, 42);
-            this.labelIsRight.Name = "labelIsRight";
-            this.labelIsRight.Size = new System.Drawing.Size(63, 13);
-            this.labelIsRight.TabIndex = 17;
-            this.labelIsRight.Text = "Prawidłowa";
-            // 
             // labelQuestion
             // 
             this.labelQuestion.AutoSize = true;
-            this.labelQuestion.Location = new System.Drawing.Point(5, 6);
+            this.labelQuestion.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            this.labelQuestion.Location = new System.Drawing.Point(30, 0);
             this.labelQuestion.Name = "labelQuestion";
-            this.labelQuestion.Size = new System.Drawing.Size(45, 13);
+            this.labelQuestion.Size = new System.Drawing.Size(54, 18);
             this.labelQuestion.TabIndex = 16;
-            this.labelQuestion.Text = "Pytanie:";
+            this.labelQuestion.Text = "Pytanie";
             // 
             // textBoxQuestion
             // 
-            this.textBoxQuestion.Location = new System.Drawing.Point(89, 3);
+            this.textBoxQuestion.BackColor = System.Drawing.Color.Gray;
+            this.textBoxQuestion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.textBoxQuestion.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxQuestion.ForeColor = System.Drawing.Color.White;
+            this.textBoxQuestion.Location = new System.Drawing.Point(90, 0);
             this.textBoxQuestion.Name = "textBoxQuestion";
-            this.textBoxQuestion.Size = new System.Drawing.Size(183, 20);
+            this.textBoxQuestion.Size = new System.Drawing.Size(200, 22);
             this.textBoxQuestion.TabIndex = 0;
             // 
             // buttonDeleteAnswer
             // 
-            this.buttonDeleteAnswer.Location = new System.Drawing.Point(242, 32);
+            this.buttonDeleteAnswer.BackColor = System.Drawing.Color.Gray;
+            this.buttonDeleteAnswer.FlatAppearance.BorderSize = 0;
+            this.buttonDeleteAnswer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteAnswer.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonDeleteAnswer.Location = new System.Drawing.Point(147, 28);
             this.buttonDeleteAnswer.Name = "buttonDeleteAnswer";
-            this.buttonDeleteAnswer.Size = new System.Drawing.Size(30, 23);
+            this.buttonDeleteAnswer.Size = new System.Drawing.Size(136, 27);
             this.buttonDeleteAnswer.TabIndex = 2;
-            this.buttonDeleteAnswer.Text = "-";
-            this.buttonDeleteAnswer.UseVisualStyleBackColor = true;
+            this.buttonDeleteAnswer.Text = "Mniej odpowiedzi";
+            this.buttonDeleteAnswer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonDeleteAnswer.UseVisualStyleBackColor = false;
             this.buttonDeleteAnswer.Click += new System.EventHandler(this.buttonDeleteAnswer_Click);
             // 
             // buttonAddAnswer
             // 
-            this.buttonAddAnswer.Location = new System.Drawing.Point(206, 32);
+            this.buttonAddAnswer.BackColor = System.Drawing.Color.Gray;
+            this.buttonAddAnswer.FlatAppearance.BorderSize = 0;
+            this.buttonAddAnswer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddAnswer.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonAddAnswer.Location = new System.Drawing.Point(5, 28);
             this.buttonAddAnswer.Name = "buttonAddAnswer";
-            this.buttonAddAnswer.Size = new System.Drawing.Size(30, 23);
+            this.buttonAddAnswer.Size = new System.Drawing.Size(136, 27);
             this.buttonAddAnswer.TabIndex = 1;
-            this.buttonAddAnswer.Text = "+";
-            this.buttonAddAnswer.UseVisualStyleBackColor = true;
+            this.buttonAddAnswer.Text = "Więcej odpowiedzi";
+            this.buttonAddAnswer.UseVisualStyleBackColor = false;
             this.buttonAddAnswer.Click += new System.EventHandler(this.buttonAddAnswer_Click);
             // 
             // userControlAnswer4
             // 
             this.userControlAnswer4.Answer = "";
             this.userControlAnswer4.IsRight = false;
-            this.userControlAnswer4.Location = new System.Drawing.Point(16, 150);
+            this.userControlAnswer4.Location = new System.Drawing.Point(8, 148);
             this.userControlAnswer4.Name = "userControlAnswer4";
-            this.userControlAnswer4.Size = new System.Drawing.Size(256, 22);
+            this.userControlAnswer4.Size = new System.Drawing.Size(275, 22);
             this.userControlAnswer4.TabIndex = 6;
             // 
             // userControlAnswer3
             // 
             this.userControlAnswer3.Answer = "";
             this.userControlAnswer3.IsRight = false;
-            this.userControlAnswer3.Location = new System.Drawing.Point(16, 125);
+            this.userControlAnswer3.Location = new System.Drawing.Point(8, 119);
             this.userControlAnswer3.Name = "userControlAnswer3";
-            this.userControlAnswer3.Size = new System.Drawing.Size(256, 22);
+            this.userControlAnswer3.Size = new System.Drawing.Size(275, 22);
             this.userControlAnswer3.TabIndex = 5;
             // 
             // userControlAnswer2
             // 
             this.userControlAnswer2.Answer = "";
             this.userControlAnswer2.IsRight = false;
-            this.userControlAnswer2.Location = new System.Drawing.Point(16, 100);
+            this.userControlAnswer2.Location = new System.Drawing.Point(8, 90);
             this.userControlAnswer2.Name = "userControlAnswer2";
-            this.userControlAnswer2.Size = new System.Drawing.Size(256, 22);
+            this.userControlAnswer2.Size = new System.Drawing.Size(275, 22);
             this.userControlAnswer2.TabIndex = 4;
             // 
             // userControlAnswer1
             // 
             this.userControlAnswer1.Answer = "";
             this.userControlAnswer1.IsRight = false;
-            this.userControlAnswer1.Location = new System.Drawing.Point(16, 75);
+            this.userControlAnswer1.Location = new System.Drawing.Point(8, 61);
             this.userControlAnswer1.Name = "userControlAnswer1";
-            this.userControlAnswer1.Size = new System.Drawing.Size(256, 22);
+            this.userControlAnswer1.Size = new System.Drawing.Size(275, 22);
             this.userControlAnswer1.TabIndex = 3;
             // 
             // userControlQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.Controls.Add(this.userControlAnswer4);
             this.Controls.Add(this.userControlAnswer3);
-            this.Controls.Add(this.labelAnswers);
-            this.Controls.Add(this.labelIsRight);
+            this.Controls.Add(this.userControlAnswer2);
+            this.Controls.Add(this.userControlAnswer1);
             this.Controls.Add(this.labelQuestion);
             this.Controls.Add(this.textBoxQuestion);
             this.Controls.Add(this.buttonDeleteAnswer);
             this.Controls.Add(this.buttonAddAnswer);
-            this.Controls.Add(this.userControlAnswer2);
-            this.Controls.Add(this.userControlAnswer1);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "userControlQuestion";
-            this.Size = new System.Drawing.Size(278, 324);
+            this.Size = new System.Drawing.Size(290, 286);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelAnswers;
-        private System.Windows.Forms.Label labelIsRight;
         private System.Windows.Forms.Label labelQuestion;
         private System.Windows.Forms.TextBox textBoxQuestion;
         private System.Windows.Forms.Button buttonDeleteAnswer;
         private System.Windows.Forms.Button buttonAddAnswer;
-        private userControlAnswer userControlAnswer2;
         private userControlAnswer userControlAnswer1;
+        private userControlAnswer userControlAnswer2;
         private userControlAnswer userControlAnswer3;
         private userControlAnswer userControlAnswer4;
     }
